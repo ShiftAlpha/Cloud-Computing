@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c648baf138d74e7fbd124a3362c5abb1" Name="Diagram1">
+        <EntityTypeShape EntityType="DomingoModel.CUSTOMER" Width="2.25" PointX="0.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoModel.EMPLOYEE" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoModel.EMPLOYEE_JOB" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoModel.JOB" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoModel.JOB_DETAILS" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoModel.MATERIAL" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoModel.MATERIALS_JOB" Width="2.375" PointX="4.875" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="DomingoModel.FK__JOB__CUSTOMER_ID__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoModel.FK__EMPLOYEE___EMP_I__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoModel.FK__EMPLOYEE___JOB_C__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoModel.FK__JOB__JOB_TYPE_ID__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoModel.FK__MATERIALS__JOB_C__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoModel.FK__MATERIALS__MATER__75A278F5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

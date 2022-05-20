@@ -1,0 +1,76 @@
+﻿@model DomingoRoofWorks.JOB
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>JOB</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.START_DATE)*@
+            <text>Job Card Number</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JOB_CARD_NO)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.START_DATE)*@
+            <text>Start Date</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.START_DATE)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.END_DATE)*@
+            <text>End Date</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.END_DATE)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NUM_OF_DAYS)*@
+            <text>Number Of Days</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUM_OF_DAYS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUSTOMER.CUSTOMER_FISRT_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUSTOMER.CUSTOMER_FISRT_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JOB_DETAILS.JOB_TYPE_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JOB_DETAILS.JOB_TYPE_NAME)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

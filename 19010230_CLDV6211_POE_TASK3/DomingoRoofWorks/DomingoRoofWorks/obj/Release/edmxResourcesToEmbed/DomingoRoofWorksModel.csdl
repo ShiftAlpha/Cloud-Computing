@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DomingoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUSTOMER_ID" />
+    </Key>
+    <Property Name="CUSTOMER_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CUSTOMER_FISRT_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CUSTOMER_LAST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CUSTOMER_STREET_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CUSTOMER_CITY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CUSTOMER_POSTAL_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CUSTOMER_EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="JOBs" Relationship="Self.FK__JOB__CUSTOMER_ID__6C190EBB" FromRole="CUSTOMER" ToRole="JOB" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EMP_ID" />
+    </Key>
+    <Property Name="EMP_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_FIRST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_SURNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_CELLNO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE_JOB" Relationship="Self.FK__EMPLOYEE___EMP_I__70DDC3D8" FromRole="EMPLOYEE" ToRole="EMPLOYEE_JOB" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_JOB">
+    <Key>
+      <PropertyRef Name="EMP_JOB_ID" />
+    </Key>
+    <Property Name="EMP_JOB_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JOB_CARD_NO" Type="Int32" Nullable="false" />
+    <Property Name="EMP_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK__EMPLOYEE___EMP_I__70DDC3D8" FromRole="EMPLOYEE_JOB" ToRole="EMPLOYEE" />
+    <NavigationProperty Name="JOB" Relationship="Self.FK__EMPLOYEE___JOB_C__6FE99F9F" FromRole="EMPLOYEE_JOB" ToRole="JOB" />
+  </EntityType>
+  <EntityType Name="JOB">
+    <Key>
+      <PropertyRef Name="JOB_CARD_NO" />
+    </Key>
+    <Property Name="JOB_CARD_NO" Type="Int32" Nullable="false" />
+    <Property Name="CUSTOMER_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JOB_TYPE_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="START_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="END_DATE" Type="DateTime" Precision="0" />
+    <Property Name="NUM_OF_DAYS" Type="Int16" />
+    <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__JOB__CUSTOMER_ID__6C190EBB" FromRole="JOB" ToRole="CUSTOMER" />
+    <NavigationProperty Name="EMPLOYEE_JOB" Relationship="Self.FK__EMPLOYEE___JOB_C__6FE99F9F" FromRole="JOB" ToRole="EMPLOYEE_JOB" />
+    <NavigationProperty Name="JOB_DETAILS" Relationship="Self.FK__JOB__JOB_TYPE_ID__6D0D32F4" FromRole="JOB" ToRole="JOB_DETAILS" />
+    <NavigationProperty Name="MATERIALS_JOB" Relationship="Self.FK__MATERIALS__JOB_C__76969D2E" FromRole="JOB" ToRole="MATERIALS_JOB" />
+  </EntityType>
+  <EntityType Name="JOB_DETAILS">
+    <Key>
+      <PropertyRef Name="JOB_TYPE_ID" />
+    </Key>
+    <Property Name="JOB_TYPE_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JOB_TYPE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DAILY_RATE" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="JOBs" Relationship="Self.FK__JOB__JOB_TYPE_ID__6D0D32F4" FromRole="JOB_DETAILS" ToRole="JOB" />
+  </EntityType>
+  <EntityType Name="MATERIAL">
+    <Key>
+      <PropertyRef Name="MATERIAL_ID" />
+    </Key>
+    <Property Name="MATERIAL_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MATERIAL_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="MATERIALS_JOB" Relationship="Self.FK__MATERIALS__MATER__75A278F5" FromRole="MATERIALS" ToRole="MATERIALS_JOB" />
+  </EntityType>
+  <EntityType Name="MATERIALS_JOB">
+    <Key>
+      <PropertyRef Name="MATERIAL_ID" />
+      <PropertyRef Name="JOB_CARD_NO" />
+    </Key>
+    <Property Name="MATERIAL_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JOB_CARD_NO" Type="Int32" Nullable="false" />
+    <Property Name="QUANTITY" Type="Int32" />
+    <NavigationProperty Name="JOB" Relationship="Self.FK__MATERIALS__JOB_C__76969D2E" FromRole="MATERIALS_JOB" ToRole="JOB" />
+    <NavigationProperty Name="MATERIAL" Relationship="Self.FK__MATERIALS__MATER__75A278F5" FromRole="MATERIALS_JOB" ToRole="MATERIALS" />
+  </EntityType>
+  <Association Name="FK__JOB__CUSTOMER_ID__6C190EBB">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="JOB" Type="Self.JOB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Principal>
+      <Dependent Role="JOB">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE___EMP_I__70DDC3D8">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="EMPLOYEE_JOB" Type="Self.EMPLOYEE_JOB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="EMP_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_JOB">
+        <PropertyRef Name="EMP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE___JOB_C__6FE99F9F">
+    <End Role="JOB" Type="Self.JOB" Multiplicity="1" />
+    <End Role="EMPLOYEE_JOB" Type="Self.EMPLOYEE_JOB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB">
+        <PropertyRef Name="JOB_CARD_NO" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_JOB">
+        <PropertyRef Name="JOB_CARD_NO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__JOB__JOB_TYPE_ID__6D0D32F4">
+    <End Role="JOB_DETAILS" Type="Self.JOB_DETAILS" Multiplicity="1" />
+    <End Role="JOB" Type="Self.JOB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB_DETAILS">
+        <PropertyRef Name="JOB_TYPE_ID" />
+      </Principal>
+      <Dependent Role="JOB">
+        <PropertyRef Name="JOB_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MATERIALS__JOB_C__76969D2E">
+    <End Role="JOB" Type="Self.JOB" Multiplicity="1" />
+    <End Role="MATERIALS_JOB" Type="Self.MATERIALS_JOB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB">
+        <PropertyRef Name="JOB_CARD_NO" />
+      </Principal>
+      <Dependent Role="MATERIALS_JOB">
+        <PropertyRef Name="JOB_CARD_NO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MATERIALS__MATER__75A278F5">
+    <End Role="MATERIALS" Type="Self.MATERIAL" Multiplicity="1" />
+    <End Role="MATERIALS_JOB" Type="Self.MATERIALS_JOB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MATERIALS">
+        <PropertyRef Name="MATERIAL_ID" />
+      </Principal>
+      <Dependent Role="MATERIALS_JOB">
+        <PropertyRef Name="MATERIAL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DomingoRoofWorksEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+    <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+    <EntitySet Name="EMPLOYEE_JOB" EntityType="Self.EMPLOYEE_JOB" />
+    <EntitySet Name="JOBs" EntityType="Self.JOB" />
+    <EntitySet Name="JOB_DETAILS" EntityType="Self.JOB_DETAILS" />
+    <EntitySet Name="MATERIALS" EntityType="Self.MATERIAL" />
+    <EntitySet Name="MATERIALS_JOB" EntityType="Self.MATERIALS_JOB" />
+    <AssociationSet Name="FK__JOB__CUSTOMER_ID__6C190EBB" Association="Self.FK__JOB__CUSTOMER_ID__6C190EBB">
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+      <End Role="JOB" EntitySet="JOBs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE___EMP_I__70DDC3D8" Association="Self.FK__EMPLOYEE___EMP_I__70DDC3D8">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="EMPLOYEE_JOB" EntitySet="EMPLOYEE_JOB" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE___JOB_C__6FE99F9F" Association="Self.FK__EMPLOYEE___JOB_C__6FE99F9F">
+      <End Role="JOB" EntitySet="JOBs" />
+      <End Role="EMPLOYEE_JOB" EntitySet="EMPLOYEE_JOB" />
+    </AssociationSet>
+    <AssociationSet Name="FK__JOB__JOB_TYPE_ID__6D0D32F4" Association="Self.FK__JOB__JOB_TYPE_ID__6D0D32F4">
+      <End Role="JOB_DETAILS" EntitySet="JOB_DETAILS" />
+      <End Role="JOB" EntitySet="JOBs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MATERIALS__JOB_C__76969D2E" Association="Self.FK__MATERIALS__JOB_C__76969D2E">
+      <End Role="JOB" EntitySet="JOBs" />
+      <End Role="MATERIALS_JOB" EntitySet="MATERIALS_JOB" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MATERIALS__MATER__75A278F5" Association="Self.FK__MATERIALS__MATER__75A278F5">
+      <End Role="MATERIALS" EntitySet="MATERIALS" />
+      <End Role="MATERIALS_JOB" EntitySet="MATERIALS_JOB" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

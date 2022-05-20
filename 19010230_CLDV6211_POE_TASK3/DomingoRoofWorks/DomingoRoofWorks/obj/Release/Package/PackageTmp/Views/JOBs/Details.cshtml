@@ -1,0 +1,61 @@
+﻿@model DomingoRoofWorks.JOB
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JOB</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.START_DATE)*@
+            <text>Start Date</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.START_DATE)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.END_DATE)*@
+            <text>End Date</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.END_DATE)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NUM_OF_DAYS)*@
+            <text>Number Of Days</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUM_OF_DAYS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUSTOMER.CUSTOMER_FISRT_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUSTOMER.CUSTOMER_FISRT_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JOB_DETAILS.JOB_TYPE_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JOB_DETAILS.JOB_TYPE_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JOB_CARD_NO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

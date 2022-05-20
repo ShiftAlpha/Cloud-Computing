@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="232767770a8f41da924e32a7351db5ac" Name="Diagram1">
+        <EntityTypeShape EntityType="DomingoRoofWorks_16012775_POEModel.CUST" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorks_16012775_POEModel.EMP" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorks_16012775_POEModel.EMPS_JOBS" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorks_16012775_POEModel.INVOICE" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorks_16012775_POEModel.JOB_TYPES" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorks_16012775_POEModel.JOB" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorks_16012775_POEModel.MATERIAL" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorks_16012775_POEModel.MATERIALS_PER_PROJECT" Width="1.5" PointX="8.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorks_16012775_POEModel.database_firewall_rules" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="DomingoRoofWorks_16012775_POEModel.FK__INVOICE__CUST_ID__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorks_16012775_POEModel.FK__JOBS__CUST_ID__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorks_16012775_POEModel.FK__EMPS_JOBS__EMP_N__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorks_16012775_POEModel.FK__EMPS_JOBS__JOB_C__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorks_16012775_POEModel.FK__INVOICE__JOB_CAR__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorks_16012775_POEModel.FK__INVOICE__job_typ__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorks_16012775_POEModel.FK__JOBS__JOB_TYPE_I__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorks_16012775_POEModel.FK__MATERIALS__JOB_C__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorks_16012775_POEModel.FK__MATERIALS__MAT_I__6D0D32F4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

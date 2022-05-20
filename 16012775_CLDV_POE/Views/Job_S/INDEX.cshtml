@@ -1,0 +1,76 @@
+﻿0
+@{
+    ViewBag.Title = "INDEX";
+}
+
+<h2>INDEX</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.START_DATE)*@
+            <text>Job Card Number</text>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.START_DATE)*@
+            <text>Start Date</text>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.END_DATE)*@
+            <text>End Date</text>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.NUM_OF_DAYS)*@
+            <text>Number Of Days</text>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.CUSTOMER.CUSTOMER_FISRT_NAME)*@
+            <text>Customer First Name</text>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.CUSTOMER.CUSTOMER_FISRT_NAME)*@
+            <text>Customer Surname</text>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.JOB_DETAILS.JOB_TYPE_NAME)*@
+            <text>Job Type Name</text>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JOB_CARD_NO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.START_DATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.END_DATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NUM_OF_DAYS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CUSTOMER.CUSTOMER_FISRT_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CUSTOMER.CUSTOMER_LAST_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JOB_DETAILS.JOB_TYPE_NAME)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.JOB_CARD_NO }) |
+                @Html.ActionLink("Details", "Details", new { id = item.JOB_CARD_NO }) |
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.JOB_CARD_NO })*@
+            </td>
+        </tr>
+    }
+
+</table>

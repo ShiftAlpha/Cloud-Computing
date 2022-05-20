@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="x0031_6012775_POE_Model" />
+  <Alias Key="Target" Value="x0031_6012775_POE_Model.Store" />
+  <EntityContainerMapping CdmEntityContainer="x0031_6012775_POE_ModelContainer" StorageEntityContainer="x0031_6012775_POE_ModelTargetContainer" />
+</Mapping>

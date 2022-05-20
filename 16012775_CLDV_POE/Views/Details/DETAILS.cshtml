@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "DETAILS";
+}
+
+<h2>DETAILS</h2>
+
+<div>
+    <h4>JOB_DETAILS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.JOB_TYPE_NAME)*@
+            <text>Job Type</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JOB_TYPE_NAME)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.DAILY_RATE)*@
+            <text>Daily Rate</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DAILY_RATE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JOB_TYPE_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

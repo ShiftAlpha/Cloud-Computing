@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\hifi\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\hifi\\.nuget\\packages"
+    ]
+  }
+}

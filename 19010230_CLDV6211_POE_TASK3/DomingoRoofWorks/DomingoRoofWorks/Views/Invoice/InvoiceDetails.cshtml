@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "InvoiceDetails";
+}
+
+<h2>Invoice Details</h2>
+<p>@Session["jobCardDisplay"]</p>
+<br />
+<p>@Session["customerDisplay"]:</p>
+<br />
+<p>Customer Name: @Session["custName"]</p>
+<br />
+<p>Customer Email: @Session["custEmail"]</p>
+<br />
+<p>Customer Address: @Session["custAddress"]</p>
+<br />
+<p>@Session["empDisplay"]</p>
+<br />
+<p>@Session["matDisplay"]</p>
+<br />
+<p>@Session["costs"]</p>
+<br />
+<p>Daily Rate: @Session["dailyRate"]</p>
+<br />
+<p>Subtotal: @Session["subtotal"]</p>
+<br />
+<p>VAT: @Session["vat"]</p>
+<br />
+<p>Total: @Session["total"]</p>
+<br />
+@*<h3>@ViewBag.Message</h3>*@
+

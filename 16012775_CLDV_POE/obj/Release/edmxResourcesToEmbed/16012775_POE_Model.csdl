@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="x0031_6012775_POE_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="x0031_6012775_POE_ModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DETAILS" EntityType="x0031_6012775_POE_Model.DETAILS" />
+    <EntitySet Name="JOBs1" EntityType="x0031_6012775_POE_Model.JOB" />
+    <EntitySet Name="JOB_MATERIALS" EntityType="x0031_6012775_POE_Model.JOB_MATERIALS" />
+    <EntitySet Name="CUSTOMERs" EntityType="x0031_6012775_POE_Model.CUSTOMER" />
+    <EntitySet Name="EMPLOYEEs" EntityType="x0031_6012775_POE_Model.EMPLOYEE" />
+    <EntitySet Name="MATERIALs" EntityType="x0031_6012775_POE_Model.MATERIAL" />
+    <EntitySet Name="EMPLOYEE_JOB" EntityType="x0031_6012775_POE_Model.EMPLOYEE_JOB" />
+    <AssociationSet Name="DETAILSJOB" Association="x0031_6012775_POE_Model.DETAILSJOB">
+      <End Role="DETAILS" EntitySet="DETAILS" />
+      <End Role="JOB" EntitySet="JOBs1" />
+    </AssociationSet>
+    <AssociationSet Name="JOBJOB_MATERIALS" Association="x0031_6012775_POE_Model.JOBJOB_MATERIALS">
+      <End EntitySet="JOBs1" Role="JOB" />
+      <End EntitySet="JOB_MATERIALS" Role="JOB_MATERIALS" />
+    </AssociationSet>
+    <AssociationSet Name="JOBCUSTOMER" Association="x0031_6012775_POE_Model.JOBCUSTOMER">
+      <End Role="JOB" EntitySet="JOBs1" />
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+    </AssociationSet>
+    <AssociationSet Name="JOBEMPLOYEE_JOB" Association="x0031_6012775_POE_Model.JOBEMPLOYEE_JOB">
+      <End Role="JOB" EntitySet="JOBs1" />
+      <End Role="EMPLOYEE_JOB" EntitySet="EMPLOYEE_JOB" />
+    </AssociationSet>
+    <AssociationSet Name="JOB_MATERIALSMATERIAL" Association="x0031_6012775_POE_Model.JOB_MATERIALSMATERIAL">
+      <End EntitySet="JOB_MATERIALS" Role="JOB_MATERIALS" />
+      <End EntitySet="MATERIALs" Role="MATERIAL" />
+    </AssociationSet>
+    <AssociationSet Name="EMPLOYEE_JOBEMPLOYEE" Association="x0031_6012775_POE_Model.EMPLOYEE_JOBEMPLOYEE">
+      <End Role="EMPLOYEE_JOB" EntitySet="EMPLOYEE_JOB" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DETAILS">
+    <Key>
+      <PropertyRef Name="JOB_TYPE_ID" />
+    </Key>
+    <Property Name="JOB_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JOB_TYPE_NAME" Type="String" Nullable="false" />
+    <Property Name="D_RATE" Type="String" Nullable="false" />
+    <NavigationProperty Name="JOB_S" />
+  </EntityType>
+  <EntityType Name="JOB">
+    <Key>
+      <PropertyRef Name="JOB_ID" />
+    </Key>
+    <Property Name="JOB_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CUSTOMER_ID" Type="String" Nullable="false" />
+    <Property Name="JOB_TYPE_ID" Type="String" Nullable="false" />
+    <Property Name="S_DATE" Type="String" Nullable="false" />
+    <Property Name="E_DATE" Type="String" Nullable="false" />
+    <Property Name="NUM_D" Type="String" Nullable="false" />
+    <NavigationProperty Name="CUSTOMER" />
+    <NavigationProperty Name="EMPLOYEE_JOB" />
+    <NavigationProperty Name="DETAILS" />
+    <NavigationProperty Name="JOB_MATERIALS" />
+  </EntityType>
+  <EntityType Name="JOB_MATERIALS">
+    <Key>
+      <PropertyRef Name="MATERIAL_ID" />
+    </Key>
+    <Property Name="MATERIAL_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="JOB_ID" Nullable="false" Type="String" />
+    <Property Name="QUANTITY" Nullable="false" Type="String" />
+    <NavigationProperty Name="JOB" />
+    <NavigationProperty Name="MATERIAL" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUSTOMER_ID" />
+    </Key>
+    <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CUSTOMER_FNAME" Type="String" Nullable="false" />
+    <Property Name="CUSTOMER_SNAME" Type="String" Nullable="false" />
+    <Property Name="CUSTOMER_ADDRESS" Type="String" Nullable="false" />
+    <Property Name="CUSTOMER_CITY" Type="String" Nullable="false" />
+    <Property Name="C_POSTAL_CODE" Type="String" Nullable="false" />
+    <Property Name="CUSTOMER_EMAIL" Type="String" Nullable="false" />
+    <NavigationProperty Name="JOB_S" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPLOYEE_FNAME" Type="String" Nullable="false" />
+    <Property Name="EMPLOYEE_EMAIL" Type="String" Nullable="false" />
+    <Property Name="EMPLOYEE_SNAME" Type="String" Nullable="false" />
+    <Property Name="EMPLOYEE_CELL_NUM" Type="String" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE_JOB" Relationship="x0031_6012775_POE_Model.EMPLOYEE_JOBEMPLOYEE" FromRole="EMPLOYEE" ToRole="EMPLOYEE_JOB" />
+  </EntityType>
+  <EntityType Name="MATERIAL">
+    <Key>
+      <PropertyRef Name="MATERIAL_ID" />
+    </Key>
+    <Property Name="MATERIAL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MATERIAL_NAME" Type="String" Nullable="false" />
+    <NavigationProperty Name="JOB_MATERIALS" Relationship="x0031_6012775_POE_Model.JOB_MATERIALSMATERIAL" FromRole="MATERIAL" ToRole="JOB_MATERIALS" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_JOB">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_JOB_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_JOB_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="J_CARD_NO" Type="String" Nullable="false" />
+    <Property Name="EMPLOYEE_ID" Type="String" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE" />
+    <NavigationProperty Name="JOB" />
+  </EntityType>
+  <Association Name="DETAILSJOB">
+    <End Type="x0031_6012775_POE_Model.DETAILS" Role="DETAILS" Multiplicity="1" />
+    <End Type="x0031_6012775_POE_Model.JOB" Role="JOB" Multiplicity="*" />
+  </Association>
+  <Association Name="JOBJOB_MATERIALS">
+    <End Type="x0031_6012775_POE_Model.JOB" Multiplicity="1" Role="JOB" />
+    <End Type="x0031_6012775_POE_Model.JOB_MATERIALS" Multiplicity="*" Role="JOB_MATERIALS" />
+  </Association>
+  <Association Name="JOBCUSTOMER">
+    <End Type="x0031_6012775_POE_Model.JOB" Role="JOB" Multiplicity="1" />
+    <End Type="x0031_6012775_POE_Model.CUSTOMER" Role="CUSTOMER" Multiplicity="*" />
+  </Association>
+  <Association Name="JOBEMPLOYEE_JOB">
+    <End Type="x0031_6012775_POE_Model.JOB" Role="JOB" Multiplicity="1" />
+    <End Type="x0031_6012775_POE_Model.EMPLOYEE_JOB" Role="EMPLOYEE_JOB" Multiplicity="*" />
+  </Association>
+  <Association Name="JOB_MATERIALSMATERIAL">
+    <End Type="x0031_6012775_POE_Model.JOB_MATERIALS" Multiplicity="1" Role="JOB_MATERIALS" />
+    <End Type="x0031_6012775_POE_Model.MATERIAL" Multiplicity="*" Role="MATERIAL" />
+  </Association>
+  <Association Name="EMPLOYEE_JOBEMPLOYEE">
+    <End Type="x0031_6012775_POE_Model.EMPLOYEE_JOB" Role="EMPLOYEE_JOB" Multiplicity="1" />
+    <End Type="x0031_6012775_POE_Model.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+  </Association>
+</Schema>

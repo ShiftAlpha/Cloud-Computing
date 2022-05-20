@@ -1,0 +1,54 @@
+﻿@model DomingoRoofWorks.EMPLOYEE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EMPLOYEE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.EMP_FIRST_NAME)*@
+            <text>First Name</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMP_FIRST_NAME)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.EMP_SURNAME)*@
+            <text>Surname</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMP_SURNAME)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.EMP_EMAIL)*@
+            <text>Email Address</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMP_EMAIL)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.EMP_CELLNO)*@
+            <text>Cellphone Number</text>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMP_CELLNO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EMP_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

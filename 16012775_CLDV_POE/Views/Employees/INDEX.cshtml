@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "INDEX";
+}
+
+<h2>INDEX</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.EMP_FIRST_NAME)*@
+            <text>First Name</text>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.EMP_SURNAME)*@
+            <text>Surname</text>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.EMP_EMAIL)*@
+            <text>Email Address</text>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.EMP_CELLNO)*@
+            <text>Cellphone Number</text>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_FIRST_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_SURNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMP_CELLNO)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EMP_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EMP_ID }) |
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.EMP_ID })*@
+            </td>
+        </tr>
+    }
+
+</table>
